@@ -1,2 +1,3 @@
-.mod_switcheditor/*
-.plg_system_switcheditor/*
+mod_switcheditor/*
+plg_system_switcheditor/*
+.gitattributes
