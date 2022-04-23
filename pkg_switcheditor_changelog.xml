@@ -1,0 +1,73 @@
+<changelogs>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.0.5</version>
+        <note>
+            <item>Update : 03/12/2021</item>
+        </note>
+        <fix>
+			<item>J4 Custom Fields edit conflict</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.0.4</version>
+        <note>
+            <item>Update : 08/10/2021</item>
+        </note>
+        <fix>
+			<item>JED compatibilty</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.0.3</version>
+        <note>
+            <item>Update : 20/09/2021</item>
+        </note>
+        <fix>
+			<item>CSS J.3 : add width:auto</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.0.2</version>
+        <note>
+            <item>Update : 20/09/2021</item>
+        </note>
+        <addition>
+			<item>Compact view parameter</item>
+        </addition>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.0.1</version>
+        <note>
+            <item>Update : 20/09/2021</item>
+        </note>
+        <fix>
+			<item>Update server</item>
+        </fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
+		<version>2.0.0</version>
+        <note>
+            <item>Update : 19/09/2021</item>
+        </note>
+        <addition>
+            <item>Joomla 4.0 compatibility</item>
+			<item>New J4 changelog</item>
+			<item>Update server</item>
+        </addition>
+		<remove>
+			<item>Remove jQuery</item>
+		</remove>
+	</changelog>
+</changelogs>

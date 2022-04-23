@@ -1,0 +1,32 @@
+v**
+ * Changelog
+ *
+ * @package        Package Switch Editor
+ *
+ * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * @license    GNU/GPLv2
+ */
+/**
+ * + Addition
+ * ! Removal
+ * ^ Change
+ * # Fix
+ */
+03-dec-2021 : v2.0.5
+ # J4 Custom Fields edit conflict
+
+08-oct-2021 : v2.0.4
+ # JED requirments
+
+20-sept-2021 : v2.0.3
+ # CSS J.3 : add width:auto
+
+20-sept-2021 : v2.0.2
+ + Compact view parameter
+
+20-sept-2021 : v2.0.1
+ # Update server
+
+17-Sept-2021 : v2.0.0
+ + Joomla 4.0 compatibility
+
