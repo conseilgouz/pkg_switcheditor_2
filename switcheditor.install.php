@@ -8,6 +8,7 @@
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Filesystem\File;
 
 class pkg_SwitchEditorInstallerScript
 {
@@ -23,6 +24,16 @@ class pkg_SwitchEditorInstallerScript
 		if ('uninstall' == $type)
 		{
 			return;
+		}
+		// remove obsolete files
+		$obsloteFiles = ["helper.php"];
+		foreach ($obsloteFiles as $file)
+		{
+			$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
+			if (@is_file($f))
+			{
+				File::delete($f);
+			}
 		}
 		// update the plugin
 		$query = $this->db->getQuery(true)
