@@ -65,7 +65,7 @@ class pkg_SwitchEditorInstallerScript
 		// SwitchEditor is now on Github
 		$query = $this->db->getQuery(true)
 			->delete('#__update_sites')
-			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/pkg_switcheditor%"');
+			->where($this->db->quoteName('location') . ' like "%conseilgouz.com/updates/pkg_switcheditor%"');
 		$this->db->setQuery($query);
 		$this->db->execute();
 	}
