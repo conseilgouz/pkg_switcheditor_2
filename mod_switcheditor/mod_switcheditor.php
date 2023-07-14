@@ -2,7 +2,7 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor
- * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
@@ -12,21 +12,22 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Version;
+use Joomla\CMS\Filesystem\File;
 use ConseilGouz\Module\SwitchEditor\Administrator\Helper\SwitchEditorHelper;
 
-$j = new JVersion();
+$j = new Version();
 $version=substr($j->getShortVersion(), 0,1); 
 if ($version != "4") { // Joomla 4.0
 	JLoader::registerNamespace('ConseilGouz\Module\SwitchEditor\Administrator', JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src', false, false, 'psr4');
 }
-
 
 if (SwitchEditorHelper::isPluginEnabled())
 {
 	$options = SwitchEditorHelper::getEditorOptions($params);
 	$value = Factory::getUser()->getParam('editor');
 	$path = ModuleHelper::getLayoutPath('mod_switcheditor', $params->get('layout', 'default'));
-	if (JFile::exists($path))
+	if (File::exists($path))
 	{
 		// HTMLHelper::_('jquery.framework', true);
 		$doc = Factory::getDocument();

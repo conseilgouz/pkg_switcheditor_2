@@ -62,5 +62,11 @@ class pkg_SwitchEditorInstallerScript
 			$this->db->setQuery($query);
 			$this->db->execute(); 
 		}
+		// SwitchEditor is now on Github
+		$query = $this->db->getQuery(true)
+			->delete('#__update_sites')
+			->where($db->quoteName('location') . ' like "%conseilgouz.com/updates/pkg_switcheditor%"');
+		$this->db->setQuery($query);
+		$this->db->execute();
 	}
 }
