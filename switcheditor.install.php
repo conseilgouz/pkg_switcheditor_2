@@ -1,14 +1,14 @@
 <?php
 /**
  * @package    Switch Editor
- * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
 
 class pkg_SwitchEditorInstallerScript
 {

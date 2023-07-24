@@ -2,6 +2,20 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.1.1</version>
+        <note>
+            <item>Update : 24/07/2023</item>
+        </note>
+        <fix>
+			<item>J5 compatibility</item>
+        </fix>
+		<change>
+			<item>use Joomla\Filesystem instead of Joomla\CMS\Filesystem classes</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.1.0</version>
         <note>
             <item>Update : 14/07/2023</item>

@@ -13,7 +13,6 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
-use Joomla\CMS\Filesystem\File;
 use ConseilGouz\Module\SwitchEditor\Administrator\Helper\SwitchEditorHelper;
 
 $j = new Version();
@@ -27,7 +26,7 @@ if (SwitchEditorHelper::isPluginEnabled())
 	$options = SwitchEditorHelper::getEditorOptions($params);
 	$value = Factory::getUser()->getParam('editor');
 	$path = ModuleHelper::getLayoutPath('mod_switcheditor', $params->get('layout', 'default'));
-	if (File::exists($path))
+	if (is_file($path))
 	{
 		// HTMLHelper::_('jquery.framework', true);
 		$doc = Factory::getDocument();
