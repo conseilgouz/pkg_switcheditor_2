@@ -2,6 +2,17 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.1.2</version>
+        <note>
+            <item>Update : 24/07/2023</item>
+        </note>
+		<change>
+			<item>ChangeLog file definition in module</item>
+		</change>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.1.1</version>
         <note>
             <item>Update : 24/07/2023</item>
