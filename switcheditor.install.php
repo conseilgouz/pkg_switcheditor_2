@@ -9,6 +9,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\Filesystem\File;
+use Joomla\CMS\Version;
 
 class pkg_SwitchEditorInstallerScript
 {
@@ -25,6 +26,8 @@ class pkg_SwitchEditorInstallerScript
 		{
 			return;
 		}
+		$j = new Version();
+		$version=substr($j->getShortVersion(), 0,1); 
 		// remove obsolete files
 		$obsloteFiles = ["helper.php"];
 		foreach ($obsloteFiles as $file)
@@ -33,6 +36,12 @@ class pkg_SwitchEditorInstallerScript
 			if (@is_file($f))
 			{
 				File::delete($f);
+			}
+			if ($version >= "4") { // Joomla 4.X
+				$f = JPATH_ROOT . '/modules/mod_switcheditor/' . $file;
+				if (@is_file($f)) {
+					File::delete($f);
+				}
 			}
 		}
 		// update the plugin
@@ -92,18 +101,11 @@ class pkg_SwitchEditorInstallerScript
 			$this->db->setQuery($query);
 			$this->db->execute();
 			// enable module on all menus
-			$query = $this->db->getQuery(true);
-			$columns = array('menuid', 'moduleid');
-			$query->insert($this->db->quoteName('#__modules_menu'))
-				   ->columns($this->db->quoteName($columns))
-				   ->values(':menuid, :moduleid');
-			// Bind values
-			$menuid = 0; // all 
-			$query->bind(':menuid', $menuid, Joomla\Database\ParameterType::INTEGER)
-		          ->bind(':moduleid', $id, Joomla\Database\ParameterType::INTEGER);
-			// Set the query using our newly populated query object and execute it.
-			$this->db->setQuery($query);
-			$this->db->execute();
+			$menu = new stdClass();
+			$menu->menuid = 0;
+			$menu->moduleid=$id;
+			// Insert the object into the modules_menu table.
+			$result = $this->db->insertObject('#__modules_menu', $menu);
 		}
 		// SwitchEditor is now on Github
 		$query = $this->db->getQuery(true)
