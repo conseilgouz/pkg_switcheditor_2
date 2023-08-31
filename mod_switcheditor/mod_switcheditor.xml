@@ -19,6 +19,7 @@
 	</languages>
 	<files>
 		<filename module="mod_switcheditor">mod_switcheditor.php</filename>
+		<filename>helper.php</filename>
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>
