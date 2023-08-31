@@ -9,9 +9,6 @@
 		<fix>
 			<item>Joomla 3.10.x compatibility</item>
 		</fix>
-		<addition>
-			<item>Add site module</item>
-		</addition>
 	</changelog>
 	<changelog>
 		<element>switcheditor</element>
