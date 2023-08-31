@@ -6,9 +6,9 @@
         <note>
             <item>Update : 30/08/2023</item>
         </note>
-		<change>
+		<fix>
 			<item>Joomla 5.x compatibility</item>
-		</change>
+		</fix>
 		<addition>
 			<item>Add site module</item>
 		</addition>
