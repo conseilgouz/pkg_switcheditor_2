@@ -22,12 +22,6 @@
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>
-	<media destination="switcheditor" folder="media">
-		<folder>css</folder>
-		<folder>images</folder>
-		<folder>js</folder>
-		<filename>index.html</filename>
-	</media>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
