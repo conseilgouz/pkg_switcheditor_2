@@ -1,3 +1,4 @@
 mod_switcheditor/*
+mod_site/switcheditor/*
 plg_system_switcheditor/*
 .gitattributes
