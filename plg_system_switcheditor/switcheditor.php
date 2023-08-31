@@ -2,7 +2,7 @@
 /**
  * @package    Switch Editor
  * @subpackage plg_system_switcheditor
- * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\Version;
-use ConseilGouz\Module\SwitchEditor\Administrator\Helper\SwitchEditorHelper;
+use ConseilGouz\Module\SwitchEditor\Site\Helper\SwitchEditorHelper;
 
 class plgSystemSwitchEditor extends CMSPlugin
 {
@@ -21,9 +21,9 @@ class plgSystemSwitchEditor extends CMSPlugin
 
 	public function onAfterInitialise()
 	{
-		if (!$this->app->isClient('administrator') )
-		{
-			return;
+		$path = JPATH_SITE;
+		if ($this->app->isClient('administrator') ) {
+			$path = JPATH_ADMINISTRATOR;
 		}
 		
 		$input = $this->app->input;
@@ -34,8 +34,8 @@ class plgSystemSwitchEditor extends CMSPlugin
 		}
 		$j = new Version();
 		$version=substr($j->getShortVersion(), 0,1); 
-		if ($version != "4") { // Joomla 4.0
-			JLoader::registerNamespace('ConseilGouz\Module\SwitchEditor\Administrator', JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src', false, false, 'psr4');
+		if ($version < "4") { // Joomla 4.0
+			JLoader::registerNamespace('ConseilGouz\Module\SwitchEditor\Administrator', $path . '/modules/mod_switcheditor/src', false, false, 'psr4');
 		}
 		// execute the requested task
 		$task = $input->get('task');

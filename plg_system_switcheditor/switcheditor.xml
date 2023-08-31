@@ -2,7 +2,7 @@
 <extension version="3.10" type="plugin" group="system" method="upgrade">
 	<name>plg_system_switcheditor</name>
 	<license>GNU General Public License version 3, or later</license>
-	<creationDate>2023-07-24</creationDate>
+	<creationDate>2023-08-30</creationDate>
 	<author>ConseilGouz</author>
 	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
 	<authorUrl>https://www.conseilgouz.com</authorUrl>

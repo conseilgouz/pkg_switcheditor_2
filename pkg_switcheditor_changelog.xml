@@ -2,6 +2,20 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.1.3</version>
+        <note>
+            <item>Update : 30/08/2023</item>
+        </note>
+		<change>
+			<item>Joomla 5.x compatibility</item>
+		</change>
+		<addition>
+			<item>Add site module</item>
+		</addition>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.1.2</version>
         <note>
             <item>Update : 24/07/2023</item>
