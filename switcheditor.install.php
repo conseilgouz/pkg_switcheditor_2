@@ -32,10 +32,10 @@ class pkg_SwitchEditorInstallerScript
 		if ($version >= "4") { // Joomla 4.X
 			$obsloteFiles = ["helper.php"];
 			foreach ($obsloteFiles as $file) {
-				$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
+				/* $f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
 				if (@is_file($f)) {
 					File::delete($f);
-				}	
+				}	*/
 				$f = JPATH_ROOT . '/modules/mod_switcheditor/' . $file;
 				if (@is_file($f)) {
 					File::delete($f);
