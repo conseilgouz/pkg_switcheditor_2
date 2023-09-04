@@ -1,10 +1,10 @@
 <?php
 /**
  * @package    Switch Editor
- * @subpackage mod_switcheditor site
+ * @subpackage mod_switcheditor administrator
  * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
- * @license    GNU/GPLv2
+ * @license    GNU/GPLv2 
  */
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;

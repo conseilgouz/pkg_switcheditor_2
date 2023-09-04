@@ -9,6 +9,7 @@
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\Filesystem\File;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Version;
 
 class pkg_SwitchEditorInstallerScript
@@ -29,10 +30,10 @@ class pkg_SwitchEditorInstallerScript
 		$j = new Version();
 		$version=substr($j->getShortVersion(), 0,1); 
 		// remove obsolete files
-		/*if ($version >= "4") { // Joomla 4.X
+		if ($version >= "4") { // Joomla 4.X
 			$obsloteFiles = ["helper.php"];
 			foreach ($obsloteFiles as $file) {
-				/* $f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
+				$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
 				if (@is_file($f)) {
 					File::delete($f);
 				}
@@ -41,15 +42,26 @@ class pkg_SwitchEditorInstallerScript
 					File::delete($f);
 				}
 			}
-		} */
+		} 
 		// update the plugin
-		$query = $this->db->getQuery(true)
+		/*$query = $this->db->getQuery(true)
 			->update('#__extensions')
 			->set($this->db->quoteName('enabled') . '=1')
 			->where($this->db->quoteName('element') . '="switcheditor"')
 			->where($this->db->quoteName('type') . '="plugin"');
 		$this->db->setQuery($query);
+		$this->db->execute();*/
+		// plugin not used anymore
+		$query = $this->db->getQuery(true)
+			->delete('#__extensions')
+			->where($this->db->quoteName('element') . ' like "switcheditor" AND '
+					.$this->db->quoteName('type'). 'like "plugin"');
+		$this->db->setQuery($query);
 		$this->db->execute();
+		$f = JPATH_ROOT . '/plugins/system/switcheditor';
+		if (@is_dir($f)) {
+			Folder::delete($f);
+		}
 		// update admin module if not enabled : access = registered, position = status, enable it
 		$query = $this->db->getQuery(true)
 				->select($this->db->quoteName('id'))

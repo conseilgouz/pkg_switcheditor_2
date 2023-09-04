@@ -13,7 +13,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 if (($app->input->get('option') == 'com_fields') && ($app->input->get('view') == 'field') && ($app->input->get('layout') == 'edit')) return;
 ?>
 <div class="adEditorFormBox btn-group">
-	<form name="adEditorFormSite">
+	<form action="index.php?option=switcheditor" method="post" name="adEditorForm">
 		<?php echo str_replace(' id="adEditor"', '', HTMLHelper::_('select.genericlist', $options,'adEditor', ' class="adEditor chzn-done" data-chosen="done"','element', 'name',$value)); ?>
 		<input type="hidden" name="task" value="switch" />
 		<?php echo HTMLHelper::_('form.token'); ?>

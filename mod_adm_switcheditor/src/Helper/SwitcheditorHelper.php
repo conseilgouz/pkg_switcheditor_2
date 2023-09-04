@@ -1,12 +1,12 @@
 <?php
 /**
  * @package    Switch Editor
- * @subpackage mod_switcheditor site
- * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
+ * @subpackage mod_switcheditor
+ * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
-namespace ConseilGouz\Module\SwitchEditor\Site\Helper;
+namespace ConseilGouz\Module\SwitchEditor\Administrator\Helper;
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
@@ -85,23 +85,9 @@ class SwitcheditorHelper
 		}
 		return $editors;
 	}
-
-	/**
-	 * static method to save the user's editor preferences
-	 */
-	static public function setEditor()
-	{
-		$user   = Factory::getUser();
-		$editor = Factory::getApplication()->input->get('adEditor');
-		if (!empty($editor) && !$user->guest)
-		{
-			$user->setParam('editor', $editor);
-			return $user->save(true);
-		}
-		return false;
-	}
 // ==============================================    AJAX Request 	============================================================
 	public static function getAjax() {
+		
 		// check session token
 		if(Factory::getApplication()->getInput()->get('get')) {
 			Factory::getApplication()->getInput()->get('get') or die( 'Invalid Token' );
@@ -120,4 +106,5 @@ class SwitcheditorHelper
 	    
 	    return true;
 	}
+
 }

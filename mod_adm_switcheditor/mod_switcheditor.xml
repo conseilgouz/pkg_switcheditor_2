@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension version="3.10" type="module" method="upgrade" client="site">
+<extension version="3.10" type="module" method="upgrade" client="administrator">
 	<name>mod_switcheditor</name>
 	<license>GNU General Public License version 3, or later</license>
 	<creationDate>2023-09-04</creationDate>
@@ -24,9 +24,15 @@
 		<folder>tmpl</folder>
 		<folder>services</folder>
 	</files>
+	<media destination="switcheditor" folder="media">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
 	<config>
 		<fields name="params">
-			<fieldset name="basic"  addfieldprefix="ConseilGouz\Module\SwitchEditor\Site\Field">
+			<fieldset name="basic" addfieldprefix="ConseilGouz\Module\SwitchEditor\Administrator\Field">
 			<field name="version" type="version"  margintop="-3em" extension="mod_switcheditor"/>
 				<field	name="compact"
 					type="radio" 

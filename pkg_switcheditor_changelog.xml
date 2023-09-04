@@ -2,6 +2,24 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.2.0</version>
+        <note>
+            <item>Update : 04/09/2023</item>
+        </note>
+		<remove>
+			<item>remove switcheditor plugin</item>
+		</remove>
+		<change>
+			<item>packaging : rename mod_switcheditor to mod_adm_switcheditor</item>
+			<item>Dynamic version number from xml</item>
+		</change>
+		<addition>
+			<item>Add Ajax token checking</item>
+		</addition>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.1.7</version>
         <note>
             <item>Update : 01/09/2023</item>
