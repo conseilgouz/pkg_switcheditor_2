@@ -2,6 +2,17 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
+		<version>2.2.1</version>
+        <note>
+            <item>Update : 05/09/2023</item>
+        </note>
+		<fix>
+			<item>en-GB language file : missing closing <b> in description.</item>
+		</fix>
+	</changelog>
+	<changelog>
+		<element>switcheditor</element>
+		<type>package</type>
 		<version>2.2.0</version>
         <note>
             <item>Update : 04/09/2023</item>
