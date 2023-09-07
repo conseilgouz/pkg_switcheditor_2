@@ -7,7 +7,7 @@
             <item>Update : 05/09/2023</item>
         </note>
 		<fix>
-			<item>en-GB language file : missing closing <b> in description.</item>
+			<item>en-GB language file : missing closing bold attribute in description.</item>
 		</fix>
 	</changelog>
 	<changelog>
