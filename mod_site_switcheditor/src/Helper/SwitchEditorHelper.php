@@ -13,6 +13,9 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Version;
+use Joomla\CMS\Session\Session;
+use Joomla\CMS\Response\JsonResponse;
 
 class SwitcheditorHelper
 {
@@ -103,10 +106,15 @@ class SwitcheditorHelper
 // ==============================================    AJAX Request 	============================================================
 	public static function getAjax() {
 		// check session token
-		if(Factory::getApplication()->getInput()->get('get')) {
-			Factory::getApplication()->getInput()->get('get') or die( 'Invalid Token' );
-		} else {
-			Factory::getApplication()->getInput() or die( 'Invalid Token' );
+		$j = new Version();
+		$version=substr($j->getShortVersion(), 0,1); 
+		if (!Session::checkToken('get')) {
+			if ($version >= "4") { // Joomla 4.X 
+				echo new JsonResponse(null, Text::_('JINVALID_TOKEN'), true);
+			} else {
+				echo new \JResponseJson(null, Text::_('JINVALID_TOKEN'), true);
+			}
+		    return false;
 		}
 	    $input = Factory::getApplication()->input->request;
 	    $user   = Factory::getUser();
