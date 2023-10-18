@@ -28,8 +28,8 @@ return new class implements ServiceProviderInterface
      */
     public function register(Container $container)
     {
-        $container->registerServiceProvider(new ModuleDispatcherFactory('\\ConseilGouz\\Module\\SwitchEditor'));
-        $container->registerServiceProvider(new HelperFactory('\\ConseilGouz\\Module\\SwitchEditor\\Administrator\\Helper'));
+        $container->registerServiceProvider(new ModuleDispatcherFactory('\\ConseilGouz\\Module\\Switcheditor'));
+        $container->registerServiceProvider(new HelperFactory('\\ConseilGouz\\Module\\Switcheditor\\Administrator\\Helper'));
 
         $container->registerServiceProvider(new Module());
     }

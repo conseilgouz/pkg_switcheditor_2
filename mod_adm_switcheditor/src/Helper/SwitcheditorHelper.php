@@ -6,7 +6,7 @@
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
-namespace ConseilGouz\Module\SwitchEditor\Administrator\Helper;
+namespace ConseilGouz\Module\Switcheditor\Administrator\Helper;
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;

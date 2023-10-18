@@ -9,7 +9,7 @@
 	<copyright>(C)2023 ConseilGouz. All rights reserved.</copyright>
 	<version>2.2.2</version>
 	<description>MOD_SWITCHEDITOR_XML_DESCRIPTION</description>
-	<namespace path="src">ConseilGouz\Module\SwitchEditor</namespace>
+	<namespace path="src">ConseilGouz\Module\Switcheditor</namespace>
 	<changelogurl>https://raw.githubusercontent.com/conseilgouz/pkg_switcheditor_2/master/pkg_switcheditor_changelog.xml</changelogurl>
 	<languages>
 		<language tag="en-GB">language/en-GB/mod_switcheditor.sys.ini</language>
@@ -26,7 +26,7 @@
 	</files>
 	<config>
 		<fields name="params">
-			<fieldset name="basic"  addfieldprefix="ConseilGouz\Module\SwitchEditor\Site\Field">
+			<fieldset name="basic"  addfieldprefix="ConseilGouz\Module\Switcheditor\Site\Field">
 			<field name="version" type="version"  margintop="-3em" extension="mod_switcheditor"/>
 				<field	name="compact"
 					type="radio" 

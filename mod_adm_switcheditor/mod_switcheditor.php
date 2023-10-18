@@ -13,12 +13,12 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
-use ConseilGouz\Module\SwitchEditor\Administrator\Helper\SwitcheditorHelper;
+use ConseilGouz\Module\Switcheditor\Administrator\Helper\SwitcheditorHelper;
 
 $j = new Version();
 $version=substr($j->getShortVersion(), 0,1); 
 if ($version == "3") { // Joomla 3.X
-	JLoader::registerNamespace('ConseilGouz\Module\SwitchEditor\Administrator', JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src', false, false, 'psr4');
+	JLoader::registerNamespace('ConseilGouz\Module\Switcheditor\Administrator', JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/src', false, false, 'psr4');
 }
 
 $options = SwitcheditorHelper::getEditorOptions($params);

@@ -7,7 +7,7 @@
  * @license    GNU/GPLv2
  */
 
-namespace ConseilGouz\Module\SwitchEditor\Administrator\Field;
+namespace ConseilGouz\Module\Switcheditor\Administrator\Field;
 
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;

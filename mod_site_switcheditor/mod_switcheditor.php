@@ -11,13 +11,13 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Version;
-use ConseilGouz\Module\SwitchEditor\Site\Helper\SwitcheditorHelper;
+use ConseilGouz\Module\Switcheditor\Site\Helper\SwitcheditorHelper;
 use Joomla\CMS\Uri\Uri;
 
 $j = new Version();
 $version=substr($j->getShortVersion(), 0,1); 
 if ($version == "3") { // Joomla 3.X
-	JLoader::registerNamespace('ConseilGouz\Module\SwitchEditor\Site', JPATH_SITE . '/modules/mod_switcheditor/src', false, false, 'psr4');
+	JLoader::registerNamespace('ConseilGouz\Module\Switcheditor\Site', JPATH_SITE . '/modules/mod_switcheditor/src', false, false, 'psr4');
 }
 $modulefield	= ''.URI::base(true).'/media/switcheditor/';
 

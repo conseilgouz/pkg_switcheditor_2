@@ -11,13 +11,13 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
-use ConseilGouz\Module\SwitchEditor\Site\Helper\SwitcheditorHelper;
+use ConseilGouz\Module\Switcheditor\Site\Helper\SwitcheditorHelper;
 //==========================> Joomla 3.10 compatibility <======================================
 class ModSwitchEditorHelper
 {
 // ==============================================    AJAX Request 	============================================================
 	public static function getAjax() {
-		JLoader::registerNamespace('ConseilGouz\Module\SwitchEditor\Site', JPATH_SITE . '/modules/mod_switcheditor/src', false, false, 'psr4');
+		JLoader::registerNamespace('ConseilGouz\Module\Switcheditor\Site', JPATH_SITE . '/modules/mod_switcheditor/src', false, false, 'psr4');
 		return SwitcheditorHelper::getAjax();
 	}
 }
