@@ -43,14 +43,6 @@ class pkg_SwitchEditorInstallerScript
 				}
 			}
 		} 
-		// update the plugin
-		/*$query = $this->db->getQuery(true)
-			->update('#__extensions')
-			->set($this->db->quoteName('enabled') . '=1')
-			->where($this->db->quoteName('element') . '="switcheditor"')
-			->where($this->db->quoteName('type') . '="plugin"');
-		$this->db->setQuery($query);
-		$this->db->execute();*/
 		// plugin not used anymore
 		$query = $this->db->getQuery(true)
 			->delete('#__extensions')

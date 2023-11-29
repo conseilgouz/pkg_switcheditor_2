@@ -20,7 +20,9 @@
 	<files>
 		<filename module="mod_switcheditor">mod_switcheditor.php</filename>
 		<filename>helper.php</filename>
-		<folder>src</folder>
+		<filename>src/Helper/SwitcheditorHelper.php</filename>
+		<filename>src/Helper/index.html</filename>
+		<filename>src/index.html</filename>
 		<folder>tmpl</folder>
 		<folder>services</folder>
 	</files>
