@@ -21,17 +21,6 @@ class SwitcheditorHelper
 {
 
 	/**
-	 * static method to determine if our plugin is enabled
-	 * 
-	 * @return  bool
-	 */
-	static public function isPluginEnabled()
-	{
-		// jimport('joomla.plugin.helper');
-		return PluginHelper::isEnabled('system', 'switcheditor');
-	}
-
-	/**
 	 * static method to get the list of available editors
 	 * 
 	 * @return  mixed
