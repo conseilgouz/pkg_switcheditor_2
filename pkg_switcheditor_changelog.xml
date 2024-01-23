@@ -2,17 +2,6 @@
 	<changelog>
 		<element>switcheditor</element>
 		<type>package</type>
-		<version>2.2.6</version>
-        <note>
-            <item>Update : 23/01/2024</item>
-        </note>
-		<fix>
-			<item>SP Page Builder conflict : remove form tag</item>
-		</fix>
-	</changelog>
-	<changelog>
-		<element>switcheditor</element>
-		<type>package</type>
 		<version>2.2.5</version>
         <note>
             <item>Update : 29/11/2023</item>
