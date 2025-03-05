@@ -8,6 +8,7 @@
         </note>
 		<fix>
 			<item>Joomla 5.3 : getQuery to createQuery</item>
+			<item>Add modules dispatchers</item>
 		</fix>
 	</changelog>
 	<changelog>
