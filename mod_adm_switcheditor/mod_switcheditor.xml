@@ -18,13 +18,10 @@
 		<language tag="fr-FR">language/fr-FR/mod_switcheditor.ini</language>
 	</languages>
 	<files>
-		<filename module="mod_switcheditor">mod_switcheditor.php</filename>
-		<filename>helper.php</filename>
-		<filename>src/Helper/SwitcheditorHelper.php</filename>
+		<folder module="mod_switcheditor">services.php</folder>
 		<filename>src/Helper/index.html</filename>
-		<filename>src/index.html</filename>
+		<folder>src</folder>
 		<folder>tmpl</folder>
-		<folder>services</folder>
 	</files>
 	<media destination="switcheditor" folder="media">
 		<folder>css</folder>
