@@ -10,12 +10,13 @@ namespace ConseilGouz\Module\Switcheditor\Site\Helper;
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Version;
-use Joomla\CMS\Session\Session;
+use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\Response\JsonResponse;
+use Joomla\CMS\Session\Session;
+use Joomla\CMS\Version;
+use Joomla\Database\DatabaseInterface;
 
 class SwitcheditorHelper
 {
@@ -30,8 +31,8 @@ class SwitcheditorHelper
 		static $editors;
 		if (is_null($editors))
 		{
-			$db = Factory::getDBO();
-			$db->setQuery((string) $db->getQuery(true)
+			$db	= Factory::getContainer()->get(DatabaseInterface::class);
+			$db->setQuery((string) $db->createQuery()
 					->select('element, name')
 					->from('#__extensions')
 					->where($db->quoteName('type') . ' = ' . $db->Quote('plugin'))
@@ -106,7 +107,7 @@ class SwitcheditorHelper
 		    return false;
 		}
 	    $input = Factory::getApplication()->input->request;
-	    $user   = Factory::getUser();
+	    $user   = Factory::getApplication()->getIdentity();
 	    $editor = $input->get('adEditor');
 	    if (!empty($editor) && !$user->guest)
 	    {

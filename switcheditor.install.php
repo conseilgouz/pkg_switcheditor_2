@@ -8,9 +8,10 @@
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Version;
+use Joomla\Database\DatabaseInterface;
 use Joomla\Filesystem\File;
 use Joomla\Filesystem\Folder;
-use Joomla\CMS\Version;
 
 class pkg_SwitchEditorInstallerScript
 {
@@ -18,7 +19,7 @@ class pkg_SwitchEditorInstallerScript
 	
 	public function __construct()
 	{
-		$this->db = Factory::getDbo();
+		$this->db = Factory::getContainer()->get(DatabaseInterface::class);
 	}
 
 	public function postflight($type, $parent)
@@ -44,7 +45,7 @@ class pkg_SwitchEditorInstallerScript
 			}
 		} 
 		// plugin not used anymore
-		$query = $this->db->getQuery(true)
+		$query = $this->db->createQuery()
 			->delete('#__extensions')
 			->where($this->db->quoteName('element') . ' like "switcheditor" AND '
 					.$this->db->quoteName('type'). 'like "plugin"');
@@ -55,7 +56,7 @@ class pkg_SwitchEditorInstallerScript
 			Folder::delete($f);
 		}
 		// update admin module if not enabled : access = registered, position = status, enable it
-		$query = $this->db->getQuery(true)
+		$query = $this->db->createQuery()
 				->select($this->db->quoteName('id'))
 				->from('#__modules')
 				->where($this->db->quoteName('module') . '="mod_switcheditor"')
@@ -66,7 +67,7 @@ class pkg_SwitchEditorInstallerScript
 		if ($id) {
 			$id = (int) $id;
 			// update the module position & publication
-			$query = $this->db->getQuery(true)
+			$query = $this->db->createQuery()
 					->update('#__modules')
 					->set($this->db->quoteName('published') . '=1')
 					->set($this->db->quoteName('position') . '= "status"')
@@ -75,16 +76,16 @@ class pkg_SwitchEditorInstallerScript
 			$this->db->setQuery($query);
 			$this->db->execute();
 			// remove any previous module menu entries
-			$query = $this->db->getQuery(true)->delete('#__modules_menu')->where($this->db->quoteName('moduleid') . '=' . $id);
+			$query = $this->db->createQuery()->delete('#__modules_menu')->where($this->db->quoteName('moduleid') . '=' . $id);
 			$this->db->setQuery($query);
 	        $this->db->execute();
 			// insert a new module menu entry
-			$query = $this->db->getQuery(true)->insert('#__modules_menu')->values($id . ', 0');
+			$query = $this->db->createQuery()->insert('#__modules_menu')->values($id . ', 0');
 			$this->db->setQuery($query);
 			$this->db->execute(); 
 		}
 		// update site module if not enabled : access = registered, enable it
-		$query = $this->db->getQuery(true)
+		$query = $this->db->createQuery()
 				->select($this->db->quoteName('id'))
 				->from('#__modules')
 				->where($this->db->quoteName('module') . '="mod_switcheditor"')
@@ -95,7 +96,7 @@ class pkg_SwitchEditorInstallerScript
 		if ($id) {
 			$id = (int) $id;
 			// update the module position & publication
-			$query = $this->db->getQuery(true)
+			$query = $this->db->createQuery()
 					->update('#__modules')
 					->set($this->db->quoteName('published') . '=1')
 					->set($this->db->quoteName('access') . '=2') // registred mini
@@ -110,7 +111,7 @@ class pkg_SwitchEditorInstallerScript
 			$result = $this->db->insertObject('#__modules_menu', $menu);
 		}
 		// SwitchEditor is now on Github
-		$query = $this->db->getQuery(true)
+		$query = $this->db->createQuery()
 			->delete('#__update_sites')
 			->where($this->db->quoteName('location') . ' like "%conseilgouz.com/updates/pkg_switcheditor%"');
 		$this->db->setQuery($query);

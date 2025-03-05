@@ -2,20 +2,21 @@
 /**
  * @package    Switch Editor
  * @subpackage mod_switcheditor
- * @copyright  Copyright (C) 2021 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2025 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
- * @license    GNU/GPLv2
+ * @license    GNU/GPLv3
  */
 namespace ConseilGouz\Module\Switcheditor\Administrator\Helper;
 // no direct access
 defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
-use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Version;
-use Joomla\CMS\Session\Session;
+use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\CMS\Response\JsonResponse;
+use Joomla\CMS\Session\Session;
+use Joomla\CMS\Version;
+use Joomla\Database\DatabaseInterface;
 
 class SwitcheditorHelper
 {
@@ -29,7 +30,7 @@ class SwitcheditorHelper
 		static $editors;
 		if (is_null($editors))
 		{
-			$db = Factory::getDBO();
+			$db	= Factory::getContainer()->get(DatabaseInterface::class);
 			$db->setQuery((string) $db->getQuery(true)
 					->select('element, name')
 					->from('#__extensions')
@@ -43,7 +44,7 @@ class SwitcheditorHelper
 			{
 				foreach ($editors as &$editor)
 				{
-					Factory::getLanguage()->load($editor->name . '.sys', JPATH_ADMINISTRATOR);
+					Factory::getApplication()->getLanguage()->load($editor->name . '.sys', JPATH_ADMINISTRATOR);
 					$editor->name = Text::_($editor->name);
 					// strip of any prefixed "Editor - " bits
 					if ($params->get('compact',0) == 1) { // compact view : remove word editor
@@ -91,7 +92,7 @@ class SwitcheditorHelper
 		    return false;
 		}
 	    $input = Factory::getApplication()->input->request;
-	    $user   = Factory::getUser();
+	    $user   = Factory::getApplication()->getIdentity();
 	    $editor = $input->get('adEditor');
 	    if (!empty($editor) && !$user->guest)
 	    {
@@ -99,8 +100,6 @@ class SwitcheditorHelper
 	        return $user->save(true);
 	    }
 	    return false;
-	    
-	    return true;
 	}
 
 }
