@@ -18,7 +18,7 @@
 		<language tag="fr-FR">language/fr-FR/mod_switcheditor.ini</language>
 	</languages>
 	<files>
-		<folder module="mod_switcheditor">services.php</folder>
+		<folder module="mod_switcheditor">services</folder>
 		<filename>src/Helper/index.html</filename>
 		<folder>src</folder>
 		<folder>tmpl</folder>
