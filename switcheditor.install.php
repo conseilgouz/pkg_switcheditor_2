@@ -1,7 +1,7 @@
 <?php
 /**
  * @package    Switch Editor
- * @copyright  Copyright (C) 2023 ConseilGouz. All rights reserved.
+ * @copyright  Copyright (C) 2025 ConseilGouz. All rights reserved.
  * From anything-digital.com Switch Editor
  * @license    GNU/GPLv2
  */
@@ -32,7 +32,7 @@ class pkg_SwitchEditorInstallerScript
 		$version=substr($j->getShortVersion(), 0,1); 
 		// remove obsolete files
 		if ($version >= "4") { // Joomla 4.X
-			$obsloteFiles = ["helper.php"];
+			$obsloteFiles = ["helper.php","mod_switcheditor.php"];
 			foreach ($obsloteFiles as $file) {
 				$f = JPATH_ADMINISTRATOR . '/modules/mod_switcheditor/' . $file;
 				if (@is_file($f)) {
